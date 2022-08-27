@@ -1,0 +1,19 @@
+syntax = "proto3";
+
+package user;
+
+option go_package = "github.com/shrishti-27/grpc-user-data;grpc_user_data";
+
+message User {
+  string name = 1;
+  int32 number = 2;
+  string company =3;
+}
+
+message Message {
+  string body =1;
+}
+
+service UserService {
+  rpc AddUserData(User) returns (Message) {}
+}
