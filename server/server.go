@@ -20,8 +20,8 @@ type UserServer struct {
 
 func (s *UserServer) AddUserData(ctx context.Context, in *pb.User) (*pb.Message, error) {
 	log.Printf("Recieved: %v", in.GetName())
-	userData := "UserName: " + in.GetName() + "  CompanyName: " + in.GetCompany() + "  Phone Number: " + fmt.Sprintf("%d", in.GetNumber())
 
+	userData := fmt.Sprintf("Username: %v , CompanyName: %v , Phone Number: %v", in.GetName(), in.GetCompany(), fmt.Sprintf("%d", in.GetNumber()))
 	file, err := os.Create("userData.txt")
 	if err != nil {
 		log.Fatal(err)
