@@ -25,10 +25,12 @@ func main() {
 
 	ctx, cancel := context.WithTimeout(context.Background(), time.Second)
 	defer cancel()
+
 	name := "shrishti"
 	var number int32
 	number = 999999999
 	cname := "Technogise"
+
 	r, err := c.AddUserData(ctx, &pb.User{Name: name, Number: number, Company: cname})
 	if err != nil {
 		log.Fatalf("could not create user: %v", err)
